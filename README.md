@@ -65,4 +65,5 @@
 
 
 ## **ER-модель базы данных:**
-![image](https://github.com/NikaLightman/ShoppingList/assets/128891352/2b996c7d-c42c-4b55-9d60-2170b7ae5eed)
+![image](https://github.com/NikaLightman/ShoppingList/assets/128891352/773cbe62-3f65-44d3-afe4-2f36ab3b58b2)
+
