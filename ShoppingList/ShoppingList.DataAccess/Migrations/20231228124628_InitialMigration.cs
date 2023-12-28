@@ -75,7 +75,7 @@ namespace ShoppingList.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "users",
+                name: "UsersTable",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -91,9 +91,9 @@ namespace ShoppingList.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_users", x => x.Id);
+                    table.PrimaryKey("PK_UsersTable", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_users_Sellers_SellerId",
+                        name: "FK_UsersTable_Sellers_SellerId",
                         column: x => x.SellerId,
                         principalTable: "Sellers",
                         principalColumn: "Id",
@@ -118,9 +118,9 @@ namespace ShoppingList.DataAccess.Migrations
                 {
                     table.PrimaryKey("PK_ShoppingLists", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ShoppingLists_users_UserId",
+                        name: "FK_ShoppingLists_UsersTable_UserId",
                         column: x => x.UserId,
-                        principalTable: "users",
+                        principalTable: "UsersTable",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -145,14 +145,12 @@ namespace ShoppingList.DataAccess.Migrations
                         name: "FK_ItemsInShoppingList_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_ItemsInShoppingList_ShoppingLists_ShoppingListId",
                         column: x => x.ShoppingListId,
                         principalTable: "ShoppingLists",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -231,26 +229,26 @@ namespace ShoppingList.DataAccess.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_users_Email",
-                table: "users",
+                name: "IX_UsersTable_Email",
+                table: "UsersTable",
                 column: "Email",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_users_ExternalId",
-                table: "users",
+                name: "IX_UsersTable_ExternalId",
+                table: "UsersTable",
                 column: "ExternalId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_users_PhoneNumber",
-                table: "users",
+                name: "IX_UsersTable_PhoneNumber",
+                table: "UsersTable",
                 column: "PhoneNumber",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_users_SellerId",
-                table: "users",
+                name: "IX_UsersTable_SellerId",
+                table: "UsersTable",
                 column: "SellerId",
                 unique: true);
         }
@@ -271,7 +269,7 @@ namespace ShoppingList.DataAccess.Migrations
                 name: "ShoppingLists");
 
             migrationBuilder.DropTable(
-                name: "users");
+                name: "UsersTable");
 
             migrationBuilder.DropTable(
                 name: "Sellers");

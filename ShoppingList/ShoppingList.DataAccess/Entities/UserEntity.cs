@@ -2,7 +2,7 @@
 
 namespace ShoppingList.DataAccess.Entities
 {
-    [Table("users")]
+    [Table("UsersTable")]
     public class UserEntity : BaseEntity
     {
         public required string Name { get; set; }

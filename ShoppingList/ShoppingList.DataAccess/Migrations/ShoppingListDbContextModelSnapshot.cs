@@ -282,7 +282,7 @@ namespace ShoppingList.DataAccess.Migrations
                     b.HasIndex("SellerId")
                         .IsUnique();
 
-                    b.ToTable("users");
+                    b.ToTable("UsersTable");
                 });
 
             modelBuilder.Entity("ShoppingList.DataAccess.Entities.ItemsInShoppingListEntity", b =>
@@ -290,13 +290,13 @@ namespace ShoppingList.DataAccess.Migrations
                     b.HasOne("ShoppingList.DataAccess.Entities.ProductEntity", "Product")
                         .WithMany("ItemsInShoppingList")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("ShoppingList.DataAccess.Entities.ShoppingListEntity", "ShoppingList")
                         .WithMany("ItemsInShoppingList")
                         .HasForeignKey("ShoppingListId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Product");

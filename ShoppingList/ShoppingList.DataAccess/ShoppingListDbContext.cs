@@ -54,10 +54,12 @@ namespace ShoppingList.DataAccess
             modelBuilder.Entity<ItemsInShoppingListEntity>().HasIndex(x => new { x.ProductId, x.ShoppingListId }).IsUnique();
             modelBuilder.Entity<ItemsInShoppingListEntity>().HasOne(x => x.ShoppingList)
                                                             .WithMany(x => x.ItemsInShoppingList)
-                                                            .HasForeignKey(x => x.ShoppingListId);
+                                                            .HasForeignKey(x => x.ShoppingListId)
+                                                            .OnDelete(DeleteBehavior.NoAction);
             modelBuilder.Entity<ItemsInShoppingListEntity>().HasOne(x => x.Product)
                                                             .WithMany(x => x.ItemsInShoppingList)
-                                                            .HasForeignKey(x => x.ProductId);
+                                                            .HasForeignKey(x => x.ProductId)
+                                                            .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
