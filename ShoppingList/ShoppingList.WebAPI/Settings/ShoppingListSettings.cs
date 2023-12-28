@@ -2,5 +2,6 @@
 {
     public class ShoppingListSettings
     {
+        public string ShoppingListDbContextConnectionString { get; set; }
     }
 }

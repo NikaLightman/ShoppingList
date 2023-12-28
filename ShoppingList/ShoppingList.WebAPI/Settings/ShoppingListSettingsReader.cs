@@ -4,7 +4,10 @@
     {
         public static ShoppingListSettings Read(IConfiguration configuration)
         {
-            return new ShoppingListSettings();
+            return new ShoppingListSettings()
+            {
+                ShoppingListDbContextConnectionString = configuration.GetValue<string>("ShoppingListDbContext")
+            };
         }
     }
 }
