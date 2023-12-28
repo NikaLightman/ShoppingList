@@ -14,12 +14,14 @@ builder.Services.AddControllers();
 SerilogConfigurator.ConfigureService(builder);
 SwaggerConfigurator.ConfigureServices(builder.Services);
 DbContextConfigurator.ConfigureService(builder.Services, settings);
+AuthorizationConfigurator.ConfigureServices(builder.Services, settings);
 
 var app = builder.Build();
 
 SerilogConfigurator.ConfigureApplication(app);
 SwaggerConfigurator.ConfigureApplication(app);
 DbContextConfigurator.ConfigureApplication(app);
+AuthorizationConfigurator.ConfigureApplication(app);
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
